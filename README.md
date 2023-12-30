@@ -8,18 +8,19 @@ Numpy is a general-purpose array-processing package. It provides a high-performa
 Below is the step-wise approach to Count the Number of faces:
 
 Step 1: Import required libraries. 
-# Import libraries 
-import cv2 
-import numpy as np 
-import dlib
+
+     # Import libraries 
+     import cv2 
+     import numpy as np 
+     import dlib
 
 Step 2: Open the default camera to capture faces and use the dlib library to get coordinates.
 
-# (0) in VideoCapture is used to 
-# connect to your computer's default camera 
-cap = cv2.VideoCapture(0) 
-# Get the coordinates 
-detector = dlib.get_frontal_face_detector() 
+    # (0) in VideoCapture is used to 
+    # connect to your computer's default camera 
+    cap = cv2.VideoCapture(0) 
+    # Get the coordinates 
+    detector = dlib.get_frontal_face_detector() 
 
 Step 3: Count the number of faces.
 Capture the frames continuously.
@@ -28,11 +29,13 @@ Take an iterator i and initialize it to zero.
 Each time you get the coordinates to the face structure in the frame, increment the iterator by 1.
 Plot the box around each detected face along with its face count.
 
-while True: 
+
+    while True: 
+
     # Capture frame-by-frame 
     ret, frame = cap.read() 
     frame = cv2.flip(frame, 1) 
-  
+    
     # Our operations on the frame come here 
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY) 
     faces = detector(gray) 
@@ -56,13 +59,13 @@ while True:
     cv2.imshow('frame', frame) 
 Step 4: Terminate the loop.
 
-# Enter key 'q' to break the loop 
-if cv2.waitKey(1) & 0xFF == ord('q'): 
+    # Enter key 'q' to break the loop 
+    if cv2.waitKey(1) & 0xFF == ord('q'): 
     break
     
 Step 5: Clear windows.
 
-# When everything done, release 
-# the capture and destroy the windows 
-cap.release() 
-cv2.destroyAllWindows() 
+    # When everything done, release 
+    # the capture and destroy the windows 
+    cap.release() 
+    cv2.destroyAllWindows() 
